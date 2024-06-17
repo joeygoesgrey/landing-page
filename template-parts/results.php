@@ -14,10 +14,10 @@
 
                     <p>
                         <span class="font-bold text-black">
-                            Triple your $ales:
+                            Triple your Sales:
                         </span>
                         Implement proven strategies to significantly increase your
-                        $ales.
+                        Sales.
                     </p>
                 </li>
                 <li class="flex items-center text-black py-3">

@@ -10,7 +10,7 @@ get_header(); ?>
     <p class="my-3 text-lg px-2">We will be sure to let you know of more opportunities.</p>
     <br>
     <div class=" flex flex-row justify-center px-4">
-    <a href="http://34.67.243.41/wp-content/uploads/2024/06/Social-Media-100-Targeting-Audience-Options-for-Powerful-Real-Estate-Ads.pdf" download class="mx-4 border border-green-400 bg-green-500 text-white py-2 px-6 rounded ">Download Guide</a>
+        <a href="https://olayemiolamiju.com/wp-content/uploads/2024/06/Social-Media-100-Targeting-Audience-Options-for-Powerful-Real-Estate-Ads.pdf" download class="mx-4 border border-green-400 bg-green-500 text-white py-2 px-6 rounded ">Download Guide</a>
     </div>
 </div>
 

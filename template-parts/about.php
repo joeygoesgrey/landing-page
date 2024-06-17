@@ -15,7 +15,7 @@
             </p>
             <p class="text-base text-gray-700">
                 His expertise has propelled brands both nationally and
-                internationally from minimal revenue to millions of dollars($) in
+                internationally from minimal revenue to millions of dollars in
                 sales. The impressive results of his work are evident in the
                 success stories of clients such as Johnny Rockets, IMKASH Group,
                 TAJ Bank, The Singleton, Audacia Properties, AP Real Estates,
