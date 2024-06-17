@@ -127,8 +127,7 @@ function add_confetti_to_thank_you_page()
 }
 add_action('wp_head', 'add_confetti_to_thank_you_page');
 
-function custom_redirect_to_home()
-{
+function custom_redirect_to_home() {
     // Get the current URL path
     $current_path = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/');
 
@@ -142,11 +141,21 @@ function custom_redirect_to_home()
     // Check if the current path is not in the allowed paths
     if (!in_array($current_path, $allowed_paths)) {
         // Redirect to the home page
-        wp_redirect(home_url());
+        wp_redirect(home_url('/facebook-ads-guide'));
         exit;
     }
 }
 add_action('template_redirect', 'custom_redirect_to_home');
+
+function custom_page_title($title) {
+    if (is_page('facebook-ads-guide') && !is_user_logged_in()) {
+        return 'Olayemi Olamiju';
+    }
+    return $title;
+}
+add_filter('wp_title', 'custom_page_title');
+add_filter('pre_get_document_title', 'custom_page_title'); // For newer WordPress versions
+
 
 
 function theme_setup() {
