@@ -1,5 +1,9 @@
 <section class="bg-white py-16 bg-dotted">
-    <div class="max-w-screen-xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between">
+    <div class="max-w-screen-xl mx-auto px-6 flex flex-col-reverse md:flex-row items-center justify-between">
+        <div class="md:w-1/2 flex justify-center">
+            <img class="my-auto" src="https://olayemiolamiju.com/wp-content/uploads/2024/06/boss.jpeg" alt="CEO of 5th Element group media image" />
+        </div>
+
         <div class="md:w-1/2 space-y-4 mb-8 md:mb-0">
             <h3 class="text-3xl font-bold text-gray-900">
                 Learn about the Author
@@ -30,11 +34,6 @@
                     </button>
                 </div>
             </div>
-
-        </div>
-
-        <div class="md:w-1/2 flex justify-center">
-            <img class="my-auto" src="https://olayemiolamiju.com/wp-content/uploads/2024/06/boss.png" alt="CEO of 5th Element group media image" />
         </div>
     </div>
 </section>
