@@ -134,8 +134,8 @@ function custom_redirect_to_home()
 
     // Define the allowed paths
     $allowed_paths = array(
-        '',
-        'thank-you'
+        'facebook-ads-guide',
+        'thank-you', 
     );
 
     // Check if the current path is not in the allowed paths
