@@ -1,0 +1,9 @@
+.wrap {
+  background: #fff;
+  padding: 20px;
+}
+
+.wp-list-table th {
+  background: #0073aa;
+  color: #fff;
+}

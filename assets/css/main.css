@@ -1,0 +1,154 @@
+/*
+Theme Name: 5thelement landing page
+Theme URI: http://example.com
+Author: Joeygoesgrey
+Author URI: http://example.com
+Description: A custom theme for real estate.
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: landing-page
+*/
+
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Numans&display=swap");
+
+* {
+  font-family: "Numans", Lato;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@keyframes backInDown {
+  0% {
+    opacity: 0.7;
+    transform: translateY(-1200px) scale(0.7);
+  }
+
+  80% {
+    opacity: 0.7;
+    transform: translateY(0px) scale(0.7);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.bg-greyish {
+  background-color: #fbfafa;
+}
+
+/* Centering and styling the active item */
+.owl-carousel .owl-item.center {
+  transform: scale(1.05);
+}
+
+/* Navigation button positioning */
+.owl-carousel .owl-nav button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.owl-carousel .owl-nav .owl-prev {
+  left: -25px;
+}
+.owl-carousel .owl-nav .owl-next {
+  right: -25px;
+}
+
+/* Styling the pagination dots */
+.owl-carousel .owl-dots {
+  text-align: center;
+  margin-top: 15px;
+}
+.owl-carousel .owl-dot {
+  display: inline-block;
+  margin: 0 5px;
+  width: 10px;
+  height: 10px;
+  background: #ccc;
+  border-radius: 50%;
+}
+.owl-carousel .owl-dot.active {
+  background: #000;
+}
+
+/* Ensuring testimonial card fits well */
+.testimonial-card {
+  padding: 20px;
+  margin: auto;
+  max-width: 500px;
+}
+
+#modal {
+  display: none;
+}
+#modal.show {
+  display: flex;
+}
+
+.animate__backInDown {
+  animation-name: backInDown;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+.bg-dotted {
+  background-color: white;
+  background-image: radial-gradient(red 1px, transparent 1px);
+  background-size: 45px 45px;
+}
+
+@keyframes rubberBand {
+  0% {
+    transform: scale3d(1, 1, 1);
+  }
+
+  30% {
+    transform: scale3d(1.25, 0.75, 1);
+  }
+
+  40% {
+    transform: scale3d(0.75, 1.25, 1);
+  }
+
+  50% {
+    transform: scale3d(1.15, 0.85, 1);
+  }
+
+  65% {
+    transform: scale3d(0.95, 1.05, 1);
+  }
+
+  75% {
+    transform: scale3d(1.05, 0.95, 1);
+  }
+
+  100% {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+.animate__rubberBand {
+  animation-name: rubberBand;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+.line-height {
+  line-height: 3.5rem;
+}
+
+.see {
+  border: 2px red solid;
+}
+
+.gradient-hr {
+  border: 0;
+  height: 1.2px;
+  background-image: linear-gradient(to right, white, red);
+  /* width: 5px; */
+}
+
