@@ -34,7 +34,7 @@
         </div>
 
         <div class="md:w-1/2 flex justify-center">
-            <img class="my-auto" src="<?php echo esc_url(get_ceo_image()); ?>" alt="CEO of 5th Element group media image" />
+            <img class="my-auto" src="https://olayemiolamiju.com/wp-content/uploads/2024/06/boss.png" alt="CEO of 5th Element group media image" />
         </div>
     </div>
 </section>
