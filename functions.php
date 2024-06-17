@@ -154,6 +154,7 @@ function custom_page_title($title) {
     return $title;
 }
 add_filter('wp_title', 'custom_page_title');
+
 add_filter('pre_get_document_title', 'custom_page_title'); // For newer WordPress versions
 
 
