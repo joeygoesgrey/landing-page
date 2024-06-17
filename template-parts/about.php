@@ -1,7 +1,7 @@
 <section class="bg-white py-16 bg-dotted">
     <div class="max-w-screen-xl mx-auto px-6 flex flex-col-reverse md:flex-row items-center justify-between">
-        <div class="md:w-1/2 flex justify-center">
-            <img class="my-auto" src="https://olayemiolamiju.com/wp-content/uploads/2024/06/boss.jpeg" alt="CEO of 5th Element group media image" />
+        <div class="md:w-1/2 flex justify-center md:p-8 ">
+            <img class="my-auto rounded-md" src="https://olayemiolamiju.com/wp-content/uploads/2024/06/boss.jpeg" alt="CEO of 5th Element group media image" />
         </div>
 
         <div class="md:w-1/2 space-y-4 mb-8 md:mb-0">
