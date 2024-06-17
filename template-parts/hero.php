@@ -28,7 +28,7 @@
     </div>
 
     <div class="md:w-1/2 mt-8 md:mt-0 flex justify-center md:px-8">
-      <img src="https://olayemiolamiju.com/wp-content/uploads/2024/06/ADS-Market-copy-mockup-scaled.jpg" alt="Book Image" class="object-center w-full rounded" loading="lazy" />
+      <img src="https://olayemiolamiju.com/wp-content/uploads/2024/06/ADS-Market-copy-mockup-scaled.webp" alt="Book Image" class="object-center w-full rounded" loading="lazy" />
     </div>
   </div>
   <div id="modal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
