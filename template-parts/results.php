@@ -67,7 +67,7 @@
 
         </div>
         <div class="md:w-1/2 flex justify-center">
-            <img src="<?php echo esc_url(get_result_image()); ?>" alt="Social Media 100 Targeting Audience Options for Powerful Real Estate Ads image preview" loading="lazy" />
+            <img src="https://olayemiolamiju.com/wp-content/uploads/2024/06/ADS_Market_copy_mockup-removebg-preview.png" alt="Social Media 100 Targeting Audience Options for Powerful Real Estate Ads image preview" loading="lazy" />
         </div>
     </div>
 </section>
