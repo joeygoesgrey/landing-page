@@ -141,7 +141,7 @@ function custom_redirect_to_home() {
     // Check if the current path is not in the allowed paths
     if (!in_array($current_path, $allowed_paths)) {
         // Redirect to the home page
-        wp_redirect(home_url('/facebook-ads-guide'));
+        wp_redirect(home_url(''));
         exit;
     }
 }
