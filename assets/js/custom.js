@@ -78,16 +78,13 @@ jQuery(document).ready(function ($) {
       url: ajax_object.ajax_url, // Use localized ajax_url
       data: formData + "&action=submit_form",
       success: function (response) {
-        console.log("Form submitted successfully", response);
         if (response.success) {
           window.location.href = response.data.redirect_url;
         } else {
-          console.log("Form submission error", response.data);
           validationMessage.text("Form submission failed: " + response.data).removeClass("hidden");
         }
       },
       error: function (response) {
-        console.log("Form submission failed", response);
         validationMessage.text("Form submission failed: " + response.statusText).removeClass("hidden");
       },
     });
