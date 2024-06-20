@@ -87,7 +87,7 @@ function handle_form_submission() {
         );
 
         error_log("Form submitted successfully. Redirecting to Thank You page.");
-        wp_send_json_success(array('redirect_url' => home_url('/thank-you')));
+        wp_send_json_success(array('redirect_url' => home_url('/facebook-ads-guide/thank-you')));
     } else {
         error_log("Form submission failed. Required fields missing.");
         wp_send_json_error('Required fields are missing.');
@@ -134,7 +134,7 @@ function custom_redirect_to_home() {
     // Define the allowed paths
     $allowed_paths = array(
         'facebook-ads-guide',
-        'thank-you', 
+        'facebook-ads-guide/thank-you', 
         '',
     );
 
