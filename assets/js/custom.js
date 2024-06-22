@@ -52,7 +52,6 @@ jQuery(document).ready(function ($) {
     }
   });
 
-
   // Handle form submission
   $("#modalForm").on("submit", function (event) {
     event.preventDefault();
@@ -73,6 +72,10 @@ jQuery(document).ready(function ($) {
     var formData = $(this).serialize();
     console.log(formData); // Log serialized form data
 
+    // Change submit button text and disable it
+    var submitButton = $(this).find('button[type="submit"]');
+    submitButton.text('Submitting...').prop('disabled', true);
+
     $.ajax({
       type: "POST",
       url: ajax_object.ajax_url, // Use localized ajax_url
@@ -80,12 +83,18 @@ jQuery(document).ready(function ($) {
       success: function (response) {
         if (response.success) {
           window.location.href = response.data.redirect_url;
+          // Clear input fields after successful submission
+          $("#modalForm")[0].reset();
         } else {
-          validationMessage.text("Form submission failed: " + response.data).removeClass("hidden");
+          validationMessage.text("Oops! " + response.data).removeClass("hidden");
+          // Revert submit button text and enable it
+          submitButton.text('Submit').prop('disabled', false);
         }
       },
       error: function (response) {
-        validationMessage.text("Form submission failed: " + response.statusText).removeClass("hidden");
+        validationMessage.text("Oops! " + response.statusText).removeClass("hidden");
+        // Revert submit button text and enable it
+        submitButton.text('Submit').prop('disabled', false);
       },
     });
   });

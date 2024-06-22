@@ -64,8 +64,8 @@ function get_custom_footer_name()
 {
     return " All Rights Reserved";
 }
-
-function handle_form_submission() {
+function handle_form_submission()
+{
     error_log("Form submission handler started.");
 
     if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['phone'])) {
@@ -73,8 +73,23 @@ function handle_form_submission() {
         $email = sanitize_email($_POST['email']);
         $phone = sanitize_text_field($_POST['phone']);
 
+        // Remove any spaces from the phone number
+        $phone = str_replace(' ', '', $phone);
+
         global $wpdb;
         $table = $wpdb->prefix . 'form_submissions';
+
+        // Check if the email already exists
+        $existing_entry = $wpdb->get_var($wpdb->prepare(
+            "SELECT COUNT(*) FROM $table WHERE email = %s",
+            $email
+        ));
+
+        if ($existing_entry > 0) {
+            error_log("Oops! ... Email already exists.");
+            wp_send_json_error('Email already exists.');
+            return;
+        }
 
         $wpdb->insert(
             $table,
@@ -94,6 +109,8 @@ function handle_form_submission() {
     }
 }
 
+
+
 add_action('wp_ajax_nopriv_submit_form', 'handle_form_submission');
 add_action('wp_ajax_submit_form', 'handle_form_submission');
 
@@ -107,7 +124,7 @@ function create_form_submissions_table()
     $sql = "CREATE TABLE $table_name (
         id mediumint(9) NOT NULL AUTO_INCREMENT,
         name tinytext NOT NULL,
-        email text NOT NULL,
+        email text NOT NULL UNIQUE,
         phone text NOT NULL,
         submitted_at datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
         PRIMARY KEY  (id)
@@ -116,6 +133,7 @@ function create_form_submissions_table()
     require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
     dbDelta($sql);
 }
+
 add_action('after_switch_theme', 'create_form_submissions_table');
 
 function add_confetti_to_thank_you_page()
@@ -127,14 +145,15 @@ function add_confetti_to_thank_you_page()
 }
 add_action('wp_head', 'add_confetti_to_thank_you_page');
 
-function custom_redirect_to_home() {
+function custom_redirect_to_home()
+{
     // Get the current URL path
     $current_path = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/');
 
     // Define the allowed paths
     $allowed_paths = array(
         'facebook-ads-guide',
-        'facebook-ads-guide/thank-you', 
+        'facebook-ads-guide/thank-you',
         '',
     );
 
@@ -147,7 +166,8 @@ function custom_redirect_to_home() {
 }
 add_action('template_redirect', 'custom_redirect_to_home');
 
-function custom_page_title($title) {
+function custom_page_title($title)
+{
     if (is_page('facebook-ads-guide') && !is_user_logged_in()) {
         return 'Olayemi Olamiju';
     }
@@ -159,20 +179,17 @@ add_filter('pre_get_document_title', 'custom_page_title'); // For newer WordPres
 
 
 
-function theme_setup() {
+function theme_setup()
+{
     add_theme_support('Boost Your Real Estate Marketing | Social Media 100 Targeting Audience Options for Powerful Real Estate Ads');
 }
 add_action('after_setup_theme', 'theme_setup');
 
-function custom_thank_you_page_title($title, $sep) {
+function custom_thank_you_page_title($title, $sep)
+{
     if (is_page_template('page-thank-you.php')) {
-        return 'Congratulatulation and a Big Thank You' ;
+        return 'Congratulatulation and a Big Thank You';
     }
     return $title;
 }
 add_filter('wp_title', 'custom_thank_you_page_title', 10, 2);
-
-
-
-
-
