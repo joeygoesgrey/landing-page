@@ -52,49 +52,48 @@ jQuery(document).ready(function ($) {
     }
   });
 
+  var countryCode; // To store the fetched country code
+
+  // Fetch the country code from the API
+  $.get("https://ipinfo.io", function (response) {
+    countryCode = "+" + response.country; // Store country code
+  }, "jsonp").fail(function () {
+    countryCode = "+234"; // Default country code if API fails
+  });
+
   // Handle form submission
   $("#modalForm").on("submit", function (event) {
     event.preventDefault();
+    var phoneNumber = $("#phone").val().replace(/\s+/g, ''); // Remove any spaces
 
-    // Get the phone number input
-    var phoneNumber = $("#phone").val();
-    var validationMessage = $("#validationMessage");
-
-    // Validate if the phone number contains a country code
-    if (!/^\+\d{1,3}/.test(phoneNumber)) {
-      validationMessage.text("Please include your country code in the phone number.").removeClass("hidden");
-      return;
+    // Check if the phone number already includes a valid country code
+    if (/^\+\d{1,3}/.test(phoneNumber)) {
+      // Special handling for Nigerian numbers
+      if (phoneNumber.startsWith("+2340")) {
+        phoneNumber = "+234" + phoneNumber.slice(5); // Remove the leading zero after country code
+      }
     } else {
-      validationMessage.addClass("hidden");
+      // Assume local number without country code, remove first digit and prepend country code
+      phoneNumber = countryCode + phoneNumber.slice(1);
     }
 
-    // Log form data to the console for debugging
-    var formData = $(this).serialize();
-    console.log(formData); // Log serialized form data
+    var formData = $(this).serializeArray();
+    formData.push({name: "phone", value: phoneNumber}); // Update phone data with properly formatted number
 
-    // Change submit button text and disable it
-    var submitButton = $(this).find('button[type="submit"]');
-    submitButton.text('Submitting...').prop('disabled', true);
-
+    // Perform the AJAX request
     $.ajax({
       type: "POST",
-      url: ajax_object.ajax_url, // Use localized ajax_url
-      data: formData + "&action=submit_form",
+      url: ajax_object.ajax_url,
+      data: $.param(formData),
       success: function (response) {
         if (response.success) {
           window.location.href = response.data.redirect_url;
-          // Clear input fields after successful submission
-          $("#modalForm")[0].reset();
         } else {
-          validationMessage.text("Oops! " + response.data).removeClass("hidden");
-          // Revert submit button text and enable it
-          submitButton.text('Submit').prop('disabled', false);
+          $("#validationMessage").text("Oops! " + response.data).removeClass("hidden");
         }
       },
       error: function (response) {
-        validationMessage.text("Oops! " + response.statusText).removeClass("hidden");
-        // Revert submit button text and enable it
-        submitButton.text('Submit').prop('disabled', false);
+        $("#validationMessage").text("Oops! " + response.statusText).removeClass("hidden");
       },
     });
   });
@@ -139,4 +138,5 @@ jQuery(document).ready(function ($) {
       x = setInterval(arguments.callee, 1000);
     }
   }, 1000);
+
 });

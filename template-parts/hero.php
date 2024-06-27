@@ -1,30 +1,19 @@
-<main class="bg-dotted  py-7 md:py-16 ">
+<main class="bg-dotted py-7 md:py-16">
   <div class="max-w-screen-xl animate__backInDown mx-auto px-6 flex flex-col md:flex-row items-center justify-between">
     <div class="md:w-1/2 space-y-4">
-      <h1 class="md:text-4xl text-2xl font-bold   text-black">
-        Unlock the Secrets to Targeting Your Ideal Real Estate Audience on
-        Social Media
+      <h1 class="md:text-4xl text-2xl font-bold text-black">
+        Unlock the Secrets to Targeting Your Ideal Real Estate Audience on Social Media
       </h1>
       <p class="text-lg text-black" id="EmailForm">
-        Discover 100 powerful audience targeting strategies rigorously
-        tested and proved to boost your real estate ads' effectiveness for
-        totally free.
+        Discover 100 powerful audience targeting strategies rigorously tested and proved to boost your real estate ads' effectiveness for totally free.
       </p>
 
       <div class="mt-8">
         <!-- Button to trigger modal -->
-        <div class="mt-8">
-          <div class="flex flex-col justify-start">
-            <button id="openModalButton" class="bg-red-500 py-5 rounded animate__rubberBand animate__backInDown">
-              <span class="text-md md:text-xl text-white">Download Your Free Guide Now</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- Modal -->
-
+        <button id="openModalButton" class="bg-red-500 py-5 rounded animate__rubberBand animate__backInDown">
+          <span class="text-md md:text-xl text-white p-4">Download Your Free Guide Now</span>
+        </button>
       </div>
-
     </div>
 
     <div class="md:w-1/2 mt-8 md:mt-0 flex justify-center md:px-8">
@@ -46,9 +35,14 @@
         </div>
         <div>
           <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number</label>
-          <input type="tel" id="phone" name="phone" class="mt-1 p-2 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" placeholder="+2349134348545" required>
-          <small class="text-green-500"> • Include country code</small>
+          <div class=" ">
+            <input type="hidden" id="countryCode" name="countryCode">
+            <input type="tel" id="phone" name="phone" class="block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" placeholder="Enter your phone number" required>
+
+          </div>
         </div>
+
+
         <div id="validationMessage" class="text-red-500 text-sm hidden"></div> <!-- Validation message -->
         <div class="flex justify-end">
           <button type="button" id="closeModalButton" class="mr-2 bg-red-500 text-white py-2 px-4 rounded">Cancel</button>
@@ -57,6 +51,4 @@
       </form>
     </div>
   </div>
-
-
 </main>
